@@ -7,14 +7,6 @@ import PropTypes from 'prop-types';
 // Import user components
 import Welcome from '../components/home/Welcome';
 import HowTo from '../components/home/HowTo';
-import Login from '../components/account/Login';
-import Register from '../components/account/Register';
-import Delete from '../components/account/Delete';
-import Update from '../components/account/Update';
-import Authenticate from '../components/account/Authenticate';
-
-// Import image upload component
-import SendEmail from '../components/email/SendEmail';
 
 /**
  * Render the app container
@@ -194,13 +186,8 @@ class AppContainer extends React.Component {
     }
   }
 
-  // Redirect appropriately if not logged in or authenticated
   redirect() {
-    if (this.state.loggedIn && !this.state.authenticated) {
-      return <Route render={() => <Redirect to="/authenticate"/>} />;
-    } else if (!this.state.loggedIn) {
-      return <Route render={() => <Redirect to="/login"/>} />;
-    }
+    return <Route render={() => <Redirect to="/home"/>} />;
   }
 
   // Render the app

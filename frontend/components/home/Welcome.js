@@ -98,45 +98,7 @@ class Welcome extends Component {
       { this.handleLogoutRedirect() }
        <br/>
         <MuiThemeProvider theme={theme}>
-          <h4 style={{'color': '#fff'}}>PHILLY TENANT</h4>
-
-          <div style={{ height: "3vh" }}/>
-
-          <a target="_blank" href="http://www.phillytenant.org/">
-          <Button
-            color="secondary"
-            variant="contained"
-            size="large"
-            style={{ width: "80%", margin: "0 auto", boxShadow: "none" }}
-          >
-            Resources
-          </Button>
-          </a>
-
-          <div style={{ height: "3vh" }}/>
-
-          <Link to="/howto">
-          <Button
-            color="secondary"
-            variant="contained"
-            size="large"
-            style={{ width: "80%", margin: "0 auto", boxShadow: "none" }}
-          >
-            How to Use
-          </Button>
-          </Link>
-
-          <div style={{ height: "3vh" }}/>
-
-          <Button
-            color="secondary"
-            variant="contained"
-            onClick={ this.handleLogout }
-            size="large"
-            style={{ width: "80%", margin: "0 auto", boxShadow: "none" }}
-          >
-            Log Out
-          </Button>
+          <h4 style={{'color': '#fff'}}>PACTS</h4>
         </MuiThemeProvider>
         <Nav index={1}/>
     </div>

@@ -38,69 +38,12 @@ class Welcome extends Component {
     this.state = {
       logout: false
     };
-
-    // Bindings so 'this' refers to component
-    this.handleLogout = this.handleLogout.bind(this);
-    this.handleLogoutRedirect = this.handleLogoutRedirect.bind(this);
-  }
-
-  handleLogout() {
-    /**
-     * Call to backend route to log the user out
-     */
-    axios.post('/api/user/logout').then(response => {
-      // If the user did not successfully log out
-      if (!response.data.success) {
-        this.setState({
-          error: response.data.error,
-          pending: false,
-        });
-      // If the user did successfully log out
-      } else {
-        // Update AppContainer state
-        this.props.updateAuthState(false, false);
-
-        this.setState({
-          error: null,
-          pending: false,
-          logout: true,
-        });
-      }
-    })
-    // If there was some unhandled error to this point
-    .catch(err => {
-      this.setState({
-        error: err.message,
-        pending: false,
-      });
-    });
-  }
-
-  handleLogoutRedirect() {
-    if (this.state.logout) {
-      return <Redirect to="/login"/>;
-    }
   }
 
   render() {
     return (
-    <div
-      className="container centerContent"
-      style={{
-        background: "#00ACC1",
-        minHeight: "100vh",
-        padding: "15%",
-        display: "flex",
-        justifyContent: "center",
-        flexDirection: "column",
-      }}
-    >
-      { this.handleLogoutRedirect() }
-       <br/>
-        <MuiThemeProvider theme={theme}>
-          <h4 style={{'color': '#fff'}}>PACTS</h4>
-        </MuiThemeProvider>
-        <Nav index={1}/>
+    <div>
+      <p>HIHIHIH</p>
     </div>
     );
   }
@@ -109,8 +52,7 @@ class Welcome extends Component {
 // Prop validations
 Welcome.propTypes = {
   userId: PropTypes.string,
-  name: PropTypes.string,
-  updateAuthState: PropTypes.func
+  name: PropTypes.string
 };
 
 export default Welcome;

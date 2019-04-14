@@ -30,14 +30,10 @@ const theme = createMuiTheme({
 
 /**
  * Render a card welcoming a user
- * If the user is not logged in, prompt them to log in or register
  */
 class Welcome extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      logout: false
-    };
   }
 
   render() {
@@ -49,10 +45,5 @@ class Welcome extends Component {
   }
 }
 
-// Prop validations
-Welcome.propTypes = {
-  userId: PropTypes.string,
-  name: PropTypes.string
-};
 
 export default Welcome;

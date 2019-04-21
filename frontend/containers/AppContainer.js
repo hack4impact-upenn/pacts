@@ -42,6 +42,7 @@ class AppContainer extends React.Component {
           />
 
         <Route exact path="/howto" component={HowTo} />
+        <Route exact path="/map" component={MapContainer} />
       </Switch>
     );
   }

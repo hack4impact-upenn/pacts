@@ -12,9 +12,5 @@ router.get('*', (req, res) => {
   });
 });
 
-router.get('/map', (req, res) => {
-  
-});
-
 // Export the router
 module.exports = router;

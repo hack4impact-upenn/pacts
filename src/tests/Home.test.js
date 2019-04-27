@@ -1,5 +1,5 @@
 import React from 'react';
-import Home from '../components/Home';
+import Home from '../components/Index';
 import renderer from 'react-test-renderer';
 
 it('renders', () => {

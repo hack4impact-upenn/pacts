@@ -5,7 +5,7 @@ import { createLogger } from 'redux-logger';
 import thunkMiddleware from 'redux-thunk';
 import { rootReducer } from './reducers/index';
 import freeze from 'redux-freeze';
-import { fetchItems } from './actions/items';
+import { fetchItems } from './actions/index';
 import config from './config/client';
 
 const history = createBrowserHistory();

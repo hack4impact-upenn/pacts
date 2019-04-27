@@ -5,6 +5,8 @@ import PropTypes from 'prop-types';
 import axios from 'axios';
 import Nav from '../nav/Nav';
 
+import MapContainer from '../../containers/MapContainer';
+
 // Import material-ui
 import { Button } from '@material-ui/core';
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
@@ -39,7 +41,8 @@ class Welcome extends Component {
   render() {
     return (
     <div>
-      <p>HIHIHIH</p>
+      {/*<p>HIHIHIH</p>*/}
+      <MapContainer></MapContainer>
     </div>
     );
   }

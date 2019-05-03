@@ -6455,6 +6455,11 @@ react-dom@^15.3.2:
     object-assign "^4.1.0"
     prop-types "^15.5.10"
 
+react-inline-script@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/react-inline-script/-/react-inline-script-1.2.0.tgz#b545455931406e6fd68ef59abd0daea24d18b5a3"
+  integrity sha512-Idfm2rYZ5KLr6Ti1IICkb8lIC7FMxDZoEJF93egGH+F1rAwWByAjPElcD0Tx2yBk39shYu8Pjo/CF09++yA27g==
+
 react-is@^16.3.2, react-is@^16.6.0, react-is@^16.7.0, react-is@^16.8.1:
   version "16.8.6"
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.8.6.tgz#5bbc1e2d29141c9fbdfed456343fe2bc430a6a16"

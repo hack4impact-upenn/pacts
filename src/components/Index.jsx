@@ -24,10 +24,11 @@ class Index extends Component {
         };
         var map = new google.maps.Map(mapDOMNode, mapOptions);
         var geocoder = new google.maps.Geocoder();
-        //In this case it gets the address from an element on the page, but obviously you  could just pass it to the method instead
+        // In this case it gets the address from an element on the page, but obviously you
+        // could just pass it to the method instead
         geocoder.geocode( { 'address' : "2501 Reed St, Philadelphia, PA 19146" }, function( results, status ) {
             if( status == google.maps.GeocoderStatus.OK ) {
-                //In this case it creates a marker, but you can get the lat and lng from the location.LatLng
+                // In this case it creates a marker, but you can get the lat and lng from the location.LatLng
                 map.setCenter( results[0].geometry.location );
                 var marker = new google.maps.Marker( {
                     map: map,
@@ -53,7 +54,7 @@ class Index extends Component {
         const {
           testThing
         } = this.props;
-        
+
         return (
             <div>
                 <RB.Grid>
@@ -68,12 +69,24 @@ class Index extends Component {
                                 </small>
                             </RB.PageHeader>
                         </RB.Col>
-                        <RB.Button className="move-right" onClick={() => testThing()}>touch me</RB.Button>
                         <RB.Col xs={4} md={2} />
                     </RB.Row>
-                    <RB.Row>
-                        <div ref="map" id="map"></div>
-                     </RB.Row>
+                    <RB.Row style={{
+                        position: 'absolute',
+                        top: 0,
+                        left: 0,
+                        right: 0,
+                        bottom: 0,
+                        justifyContent: 'flex-end',
+                        alignItems: 'center',}}>
+                        <div ref="map" id="map" style={{
+                            position: 'absolute',
+                            top: 0,
+                            left: 0,
+                            right: 0,
+                            bottom: 0,
+                       }}></div>
+                    </RB.Row>
                 </RB.Grid>
             </div>
         )

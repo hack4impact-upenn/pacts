@@ -28,3 +28,19 @@ export function requestProviders() {
             }, err => { dispatch(requestSearchFailed(err))  })
     }
 }
+
+export function testThing() {
+    return function(dispatch) {
+        dispatch(requestSearchSent());
+        return fetch(`${config.endpoint}test`)
+            .then(response => response.json()
+                .then(json => ({
+                    status: response.status,
+                    json
+                })))
+            .then(({ status, json }) => {
+                if (status >= 400) dispatch(requestSearchFailed());
+                else dispatch(requestSearchSuccess(json))
+            }, err => { dispatch(requestSearchFailed(err))  })
+    }
+}

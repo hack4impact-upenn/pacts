@@ -10,7 +10,7 @@ from flask_wtf import CsrfProtect
 from flask_compress import Compress
 from flask_rq import RQ
 
-# basedir = os.path.abspath(os.path.dirname(__file__))
+basedir = os.path.abspath(os.path.dirname(__file__))
 
 mail = Mail()
 db = SQLAlchemy()
@@ -28,19 +28,13 @@ login_manager.login_view = 'account.login'
 app = Flask(__name__, static_folder='../build')
 CORS(app)
 
-
-@app.route('/api/hello')
-def items():
-  '''Sample API route for data'''
-  print('here')
-  return jsonify([{'title': 'A'}, {'title': 'C'}])
-
-@app.route('/', defaults={'path': ''})
-@app.route('/<path:path>')
-def index(path):
-  '''Return index.html for all non-api routes'''
-  #pylint: disable=unused-argument
-  return send_from_directory(app.static_folder, 'index.html')
+#
+# @app.route('/', defaults={'path': ''})
+# @app.route('/<path:path>')
+# def index(path):
+#   '''Return index.html for all non-api routes'''
+#   #pylint: disable=unused-argument
+#   return send_from_directory(app.static_folder, 'index.html')
 
 # # Set up extensions
 # mail.init_app(app)
@@ -55,6 +49,6 @@ def index(path):
 #     from flask.ext.sslify import SSLify
 #     SSLify(app)
 
-# # Create app blueprints
-# from .main import main as main_blueprint
-# app.register_blueprint(main_blueprint)
+# Create app blueprints
+from main import main as main_blueprint
+app.register_blueprint(main_blueprint)

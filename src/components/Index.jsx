@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import * as RB from 'react-bootstrap';
-import axios from 'axios'
 
 class Index extends Component {
 
@@ -9,13 +8,11 @@ class Index extends Component {
         super(props, context);
     }
 
-    componentDidMount() {
-      axios.get('/api/test').then(function(res) {
-        console.log(res.data);
-      });
-    }
-
     render() {
+        const {
+          testThing
+        } = this.props;
+        
         return (
             <div>
                 <RB.Grid>
@@ -30,6 +27,7 @@ class Index extends Component {
                                 </small>
                             </RB.PageHeader>
                         </RB.Col>
+                        <RB.Button className="move-right" onClick={() => testThing()}>touch me</RB.Button>
                         <RB.Col xs={4} md={2} />
                     </RB.Row>
                     <RB.Row>

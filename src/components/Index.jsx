@@ -1,10 +1,18 @@
 import React, { Component } from 'react';
 import * as RB from 'react-bootstrap';
+import axios from 'axios'
 
 class Index extends Component {
 
     constructor(props, context) {
+        console.log('bananas');
         super(props, context);
+    }
+
+    componentDidMount() {
+      axios.get('/api/test').then(function(res) {
+        console.log(res.data);
+      });
     }
 
     render() {

@@ -10,7 +10,7 @@ from flask_wtf import CsrfProtect
 from flask_compress import Compress
 from flask_rq import RQ
 
-basedir = os.path.abspath(os.path.dirname(__file__))
+# basedir = os.path.abspath(os.path.dirname(__file__))
 
 mail = Mail()
 db = SQLAlchemy()
@@ -27,22 +27,34 @@ login_manager.login_view = 'account.login'
 # CREATE APP
 app = Flask(__name__, static_folder='../build')
 CORS(app)
-app.config.from_object(config[config_name])
-config[config_name].init_app(app)
 
-# Set up extensions
-mail.init_app(app)
-db.init_app(app)
-login_manager.init_app(app)
-csrf.init_app(app)
-compress.init_app(app)
-RQ(app)
 
-# Configure SSL if platform supports it
-if not app.debug and not app.testing and not app.config['SSL_DISABLE']:
-    from flask.ext.sslify import SSLify
-    SSLify(app)
+@app.route('/api/hello')
+def items():
+  '''Sample API route for data'''
+  print('here')
+  return jsonify([{'title': 'A'}, {'title': 'C'}])
 
-# Create app blueprints
-from .main import main as main_blueprint
-app.register_blueprint(main_blueprint)
+@app.route('/', defaults={'path': ''})
+@app.route('/<path:path>')
+def index(path):
+  '''Return index.html for all non-api routes'''
+  #pylint: disable=unused-argument
+  return send_from_directory(app.static_folder, 'index.html')
+
+# # Set up extensions
+# mail.init_app(app)
+# db.init_app(app)
+# login_manager.init_app(app)
+# csrf.init_app(app)
+# compress.init_app(app)
+# RQ(app)
+
+# # Configure SSL if platform supports it
+# if not app.debug and not app.testing and not app.config['SSL_DISABLE']:
+#     from flask.ext.sslify import SSLify
+#     SSLify(app)
+
+# # Create app blueprints
+# from .main import main as main_blueprint
+# app.register_blueprint(main_blueprint)

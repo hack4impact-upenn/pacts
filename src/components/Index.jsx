@@ -52,7 +52,7 @@ class Index extends Component {
 
     render() {
         const {
-          testThing
+          uploadCsv
         } = this.props;
 
         return (
@@ -71,22 +71,12 @@ class Index extends Component {
                         </RB.Col>
                         <RB.Col xs={4} md={2} />
                     </RB.Row>
-                    <RB.Row style={{
-                        position: 'absolute',
-                        top: 0,
-                        left: 0,
-                        right: 0,
-                        bottom: 0,
-                        justifyContent: 'flex-end',
-                        alignItems: 'center',}}>
-                        <div ref="map" id="map" style={{
-                            position: 'absolute',
-                            top: 0,
-                            left: 0,
-                            right: 0,
-                            bottom: 0,
-                       }}></div>
-                    </RB.Row>
+                    <RB.Button
+                        className="move-right"
+                        onClick={() => uploadCsv()}
+                    >
+                        touch me
+                    </RB.Button>
                 </RB.Grid>
             </div>
         )

@@ -28,13 +28,6 @@ login_manager.login_view = 'account.login'
 app = Flask(__name__, static_folder='../build')
 CORS(app)
 
-#
-# @app.route('/', defaults={'path': ''})
-# @app.route('/<path:path>')
-# def index(path):
-#   '''Return index.html for all non-api routes'''
-#   #pylint: disable=unused-argument
-#   return send_from_directory(app.static_folder, 'index.html')
 
 # # Set up extensions
 # mail.init_app(app)
@@ -52,3 +45,6 @@ CORS(app)
 # Create app blueprints
 from main import main as main_blueprint
 app.register_blueprint(main_blueprint)
+
+from bulk_resource import bulk_resource as bulk_resource_blueprint
+app.register_blueprint(bulk_resource_blueprint)

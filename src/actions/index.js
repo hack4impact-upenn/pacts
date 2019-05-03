@@ -29,10 +29,10 @@ export function requestProviders() {
     }
 }
 
-export function uploadCsv() {
+export function testThing() {
     return function(dispatch) {
         dispatch(requestSearchSent());
-        return fetch(`${config.endpoint}csv/upload`)
+        return fetch(`${config.endpoint}test`)
             .then(response => response.json()
                 .then(json => ({
                     status: response.status,
